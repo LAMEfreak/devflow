@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,18 +12,18 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          "100": "#FFF1E6", // sets color to #FFF1E6 using text-primary-100
-          "500": "#FF7000", // sets color to #FF7000 using text-primary-500
+          "100": "#FFF1E6",
+          "500": "#FF7000",
         },
         dark: {
-          "100": "#000000", // sets color to #000000 using text-dark-100
+          "100": "#000000",
           "200": "#0F1117",
           "300": "#151821",
           "400": "#212734",
           "500": "#101012",
         },
         light: {
-          "400": "#858EAD", // sets color to #858EAD using text-light-400
+          "400": "#858EAD",
           "500": "#7B8EC8",
           "700": "#DCE3F1",
           "800": "#F4F6F8",
@@ -37,13 +39,20 @@ const config: Config = {
         "dark-100": "0px 2px 10px 0px rgba(46, 52, 56, 0.10)",
         "dark-200": "2px 0px 20px 0px rgba(39, 36, 36, 0.04)",
       },
-      screens: { xs: "420px" },
+      screens: {
+        xs: "420px",
+      },
       fontFamily: {
         sans: ["var(--font-inter)"],
         "space-grotesk": ["var(--font-space-grotesk)"],
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate],
 };
 export default config;
