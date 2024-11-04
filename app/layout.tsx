@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import React from "react";
 
+import { Toaster } from "@/components/ui/toaster";
 import ThemeProvider from "@/context/Theme";
 
 const inter = Inter({
@@ -35,16 +37,19 @@ export default function RootLayout({
       className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+      <SessionProvider>
+        <body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+          <Toaster />
+        </body>
+      </SessionProvider>
     </html>
   );
 }
