@@ -73,8 +73,7 @@ const AuthForm = <T extends FieldValues>({
                     <Input
                       required
                       type={field.name === "password" ? "password" : "text"}
-                      className="paragraph-regular background-light900_dark300 light-border-2 no-focus min-h-12 rounded-1.5 border text-dark-300"
-                      placeholder="shadcn"
+                      className="paragraph-regular background-light900_dark300 light-border-2 no-focus text-dark300_light700 min-h-12 rounded-1.5 border"
                       {...field}
                     />
                   </FormControl>
